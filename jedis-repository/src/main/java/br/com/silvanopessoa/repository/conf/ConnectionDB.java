@@ -9,6 +9,22 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class ConnectionDB {
 	
+	/** The host. */
+	private String host = "localhost"; 
+
+	/** The port. */
+	private int port = 6379; 
+
+	
+	/**
+	 * Gets the connection.
+	 *
+	 * @return the connection
+	 */
+	public Jedis getConnection(){
+		return new Jedis(this.host, this.port);
+	}
+	
 	/**
 	 * Gets the connection.
 	 *
