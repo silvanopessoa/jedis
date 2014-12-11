@@ -18,7 +18,9 @@ public class ConnectionDB {
 	
 	/**
 	 * Gets the connection.
-	 *
+	 * 
+	 * Não é thread safe.
+	 * 
 	 * @return the connection
 	 */
 	public Jedis getConnection(){
@@ -38,6 +40,8 @@ public class ConnectionDB {
 	
 	/**
 	 * Gets the connection.
+	 * 
+	 * Não é thread safe.
 	 *
 	 * @param host the host
 	 * @param port the port
@@ -50,6 +54,8 @@ public class ConnectionDB {
 	
 	/**
 	 * Gets the jedis pool.
+	 * 
+	 * É thread safe.
 	 *
 	 * @param host the host
 	 * @param port the port

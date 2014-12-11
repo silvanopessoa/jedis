@@ -33,9 +33,10 @@ public class ConfigurationRepository {
 	 *
 	 * @param key the key
 	 * @param value the value
-	 * @return the string
 	 */
-	public String setValor(String key, String value) {
-		return conn.set(key,value);
+	public void setValor(String key, String value) {
+		conn.set(key,value);
 	}
+
+	
 }
