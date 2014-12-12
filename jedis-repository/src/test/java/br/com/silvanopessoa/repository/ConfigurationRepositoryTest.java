@@ -34,5 +34,33 @@ public class ConfigurationRepositoryTest {
 		assertNotNull(valorObtido);
 		assertEquals(valor+"B",valorObtidoAppend);
 	}
+	
+	@Test
+	public void deveIncrementarUmaChave(){
+		ConfigurationRepository repository = new ConfigurationRepository();
+		String chave = UUID.randomUUID().toString();
+		System.out.println(chave);
+		assertEquals(1l, repository.incrKey(chave));
+		assertEquals(2l, repository.incrKey(chave));
+	}
+	
+	@Test
+	public void deveIncrementarChavePassandoValor(){
+		ConfigurationRepository repository = new ConfigurationRepository();
+		String chave = UUID.randomUUID().toString();
+		System.out.println(chave);
+		assertEquals(1l, repository.incrKey(chave));
+		assertEquals(26l, repository.incrKeyByChaveAndValue(chave, 25));
+	}
+	
+	@Test
+	public void deveRetornarTamanhoDoValor(){
+		ConfigurationRepository repository = new ConfigurationRepository();
+		String valor = UUID.randomUUID().toString();
+		String chave = UUID.randomUUID().toString();
+		long tamanho =  chave.length();
+		repository.setValor(chave,valor);
+		assertEquals(tamanho, repository.strLen(chave));
+	}
 
 }
