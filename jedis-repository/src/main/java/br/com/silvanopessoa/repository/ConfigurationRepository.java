@@ -38,5 +38,14 @@ public class ConfigurationRepository {
 		conn.set(key,value);
 	}
 
+	/**
+	 * Append.
+	 *
+	 * @param key the key
+	 * @param value the value
+	 */
+	public void append(String key, String value){
+		conn.append(key, value);
+	}
 	
 }
