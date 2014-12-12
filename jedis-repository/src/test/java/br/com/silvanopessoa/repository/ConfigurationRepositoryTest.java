@@ -4,13 +4,20 @@ import static org.junit.Assert.*;
 
 import java.util.UUID;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ConfigurationRepositoryTest {
 
+	private ConfigurationRepository repository;
+	
+	@Before
+	public void init(){
+		repository = new ConfigurationRepository();
+	}
+	
 	@Test
 	public void deveInserirValoreObter() {
-		ConfigurationRepository repository = new ConfigurationRepository();
 		String chave = "chave_"+UUID.randomUUID().toString();
 		String valor = "valor_"+UUID.randomUUID().toString();
 		repository.setValor(chave, valor);
@@ -19,10 +26,8 @@ public class ConfigurationRepositoryTest {
 		assertEquals(valorObtido, valor);
 	}
 	
-	
 	@Test
 	public void deveConcatenarUmaString() {
-		ConfigurationRepository repository = new ConfigurationRepository();
 		String chave = "chave_"+UUID.randomUUID().toString();
 		String valor = "A";
 		repository.setValor(chave, valor);
@@ -37,7 +42,6 @@ public class ConfigurationRepositoryTest {
 	
 	@Test
 	public void deveIncrementarUmaChave(){
-		ConfigurationRepository repository = new ConfigurationRepository();
 		String chave = UUID.randomUUID().toString();
 		System.out.println(chave);
 		assertEquals(1l, repository.incrKey(chave));
@@ -46,7 +50,6 @@ public class ConfigurationRepositoryTest {
 	
 	@Test
 	public void deveIncrementarChavePassandoValor(){
-		ConfigurationRepository repository = new ConfigurationRepository();
 		String chave = UUID.randomUUID().toString();
 		System.out.println(chave);
 		assertEquals(1l, repository.incrKey(chave));
@@ -55,7 +58,6 @@ public class ConfigurationRepositoryTest {
 	
 	@Test
 	public void deveRetornarTamanhoDoValor(){
-		ConfigurationRepository repository = new ConfigurationRepository();
 		String valor = UUID.randomUUID().toString();
 		String chave = UUID.randomUUID().toString();
 		long tamanho =  chave.length();
