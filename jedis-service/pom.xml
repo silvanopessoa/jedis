@@ -7,4 +7,16 @@
   </parent>
   <groupId>jedis-service</groupId>
   <artifactId>jedis-service</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>jedis</groupId>
+  		<artifactId>jedis-repository</artifactId>
+  		<version>0.0.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>jedis-model-transformation</groupId>
+  		<artifactId>jedis-model-transformation</artifactId>
+  		<version>0.0.1</version>
+  	</dependency>
+  </dependencies>
 </project>

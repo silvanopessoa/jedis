@@ -1,5 +1,6 @@
 package br.com.silvanopessoa.jedis.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -9,9 +10,12 @@ import java.util.Date;
  * @author silvano.pessoa
  * @since 28/10/2014 - 21:31:26
  */
-public class Usuario extends AbstractPersistable<Long> {
+public class User extends AbstractPersistable<Long> implements Serializable{
 
-    /** O(a) login. */
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** O(a) login. */
     private String login;
 
     /** O(a) data alteracao. */

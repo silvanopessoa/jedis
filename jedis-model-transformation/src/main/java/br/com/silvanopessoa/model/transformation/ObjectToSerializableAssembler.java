@@ -1,17 +1,21 @@
 package br.com.silvanopessoa.model.transformation;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
  * The Class ObjectToSerializableAssembler.
  */
-public class ObjectToSerializableAssembler {
+public final class ObjectToSerializableAssembler {
 
+	/**
+	 * Instantiates a new object to serializable assembler.
+	 */
+	private ObjectToSerializableAssembler() {
+	}
+	
 	/**
 	 * Object to bytes.
 	 *
@@ -19,7 +23,7 @@ public class ObjectToSerializableAssembler {
 	 * @return the byte[]
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public byte[] objectToBytes(Serializable serializable) throws IOException{
+	public static byte[] objectToBytes(Serializable serializable) throws IOException{
 		ByteArrayOutputStream byteArrayOutputStream = null;
 		ObjectOutputStream objectOutputStream=  null;
 		byte[] result = null;
@@ -34,26 +38,4 @@ public class ObjectToSerializableAssembler {
 		}
 		return result;
 	}
-	
-	/**
-	 * Bytes to object.
-	 *
-	 * @param bytes the bytes
-	 * @return the serializable
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws ClassNotFoundException the class not found exception
-	 */
-	public Serializable bytesToObject(byte[] bytes) throws IOException, ClassNotFoundException{
-		ByteArrayInputStream byteArrayInputStream = null;
-		ObjectInputStream objectInputStream = null;
-		try{
-			byteArrayInputStream = new ByteArrayInputStream(bytes);
-			objectInputStream = new ObjectInputStream(byteArrayInputStream);
-			return (Serializable) objectInputStream.readObject();
-		}finally{
-			byteArrayInputStream.close();
-			objectInputStream.close();
-		}
-	}
-	
 }
