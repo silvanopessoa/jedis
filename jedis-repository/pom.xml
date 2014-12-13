@@ -21,5 +21,10 @@
 			<version>4.12</version>
 		</dependency>
 
+		<dependency>
+			<groupId>jedis-model</groupId>
+			<artifactId>jedis-model</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 </project>
