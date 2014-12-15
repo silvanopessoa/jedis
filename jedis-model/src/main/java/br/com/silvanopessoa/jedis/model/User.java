@@ -3,7 +3,6 @@ package br.com.silvanopessoa.jedis.model;
 import java.io.Serializable;
 import java.util.Date;
 
-
 /**
  * O(a) Class Usuario.
  *
@@ -19,30 +18,29 @@ public class User extends AbstractPersistable<Long> implements Serializable{
     private String login;
 
     /** O(a) data alteracao. */
-    private Date dataAlteracao;
+    private Date modifyDate;
 
     /**
-     * Obtém o valor do(a)(s) data alteracao.
-     *
+     * Gets the modify date.
+     * 
      * @author silvano.pessoa
-     * @return o(a) data alteracao
+     * @return the modify date
      */
-    public Date getDataAlteracao() {
-        return dataAlteracao;
-    }
+    public Date getModifyDate() {
+		return modifyDate;
+	}
 
-    /**
-     * Determina o(a) data alteracao.
-     *
-     * @author silvano.pessoa
-     * @param dataAlteracao
-     *            o(a) novo(a) data alteracao
-     */
-    public void setDataAlteracao(Date dataAlteracao) {
-        this.dataAlteracao = dataAlteracao;
-    }
+	/**
+	 * Sets the modify date.
+	 *
+	 * @author silvano.pessoa
+	 * @param modifyDate the new modify date
+	 */
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
 
-    /**
+	/**
      * Obtém o valor do(a)(s) login.
      *
      * @author silvano.pessoa

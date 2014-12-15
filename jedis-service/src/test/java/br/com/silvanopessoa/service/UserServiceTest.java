@@ -25,7 +25,7 @@ public class UserServiceTest {
 		User user = new User();
 		user.setLogin("silvano.pessoa");
 		user.setId(32l);
-		user.setDataAlteracao(new Date());
+		user.setModifyDate(new Date());
 		return user;
 	}
 	
