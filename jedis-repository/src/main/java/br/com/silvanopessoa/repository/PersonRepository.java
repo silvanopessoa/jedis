@@ -3,7 +3,6 @@ package br.com.silvanopessoa.repository;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
 import java.util.Map;
 
 import redis.clients.jedis.Jedis;
