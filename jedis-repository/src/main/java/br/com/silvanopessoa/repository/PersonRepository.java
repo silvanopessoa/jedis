@@ -3,6 +3,7 @@ package br.com.silvanopessoa.repository;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.Map;
 
 import redis.clients.jedis.Jedis;
@@ -32,7 +33,8 @@ public class PersonRepository {
 	public void save(Person person){
 		String key = "person:"+person.getName();
 		conn.hset(key, "name",person.getName());
-		conn.hset(key, "modifyDate",person.getModifyDate().toString());
+		DateFormat formatter = new SimpleDateFormat("MMM/d/yyyy HH:mm:ss");
+		conn.hset(key, "modifyDate",formatter.format(person.getModifyDate()));
 	}
 	
 	/**
@@ -46,7 +48,7 @@ public class PersonRepository {
 		if(conn.exists(key)){
 			Person person = new Person();
 			person.setName(conn.hget(key, "name"));
-			DateFormat formatter = new SimpleDateFormat("MM/dd/yy");  
+			DateFormat formatter = new SimpleDateFormat("MMM/d/yyyy HH:mm:ss");  
 			person.setModifyDate(formatter.parse(conn.hget(key, "modifyDate")));
 			return person;
 		}
